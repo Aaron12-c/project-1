@@ -1,0 +1,351 @@
+/* Reset default padding and margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Color Variables */
+:root {
+  --lime: hsl(61, 70%, 52%);
+  --lime-light: hsl(61, 70%, 80%); /* extra */
+  --red: hsl(4, 69%, 50%);
+  --white: hsl(0, 0%, 100%);
+  --slate-100: hsl(202, 86%, 94%);
+  --slate-300: hsl(203, 41%, 72%);
+  --slate-500: hsl(200, 26%, 54%);
+  --slate-700: hsl(200, 24%, 40%);
+  --slate-900: hsl(202, 55%, 16%);
+  --slate-1000: hsl(202, 55%, 12%); /* extra */
+}
+
+/* Global Elements */
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+label {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Number Input */
+input[type="number"] {
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  font-weight: 700;
+  border: 1px solid var(--slate-300);
+  outline: none;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease;
+}
+input[type="number"]:focus {
+  border-color: var(--lime);
+}
+
+/* Radio Buttons */
+input[type="radio"] {
+  appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.5rem;
+  outline: 2px solid var(--slate-900);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+input[type="radio"]:checked {
+  background-color: var(--lime);
+}
+
+/* Radio Inputs Container */
+.radio-inputs {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--slate-300);
+  border-radius: 0.5rem;
+}
+.radio-inputs > * {
+  cursor: pointer;
+}
+
+.radio-inputs:hover {
+  border: 1px solid var(--lime);
+}
+.radio-inputs label {
+  margin-bottom: 0;
+}
+.radio-inputs.selected {
+  background-color: var(--lime-light);
+  border: 1px solid var(--lime);
+}
+.radio-inputs.selected input[type="radio"] {
+  outline: 3px solid var(--lime);
+}
+
+/* Button Styling */
+button {
+  cursor: pointer;
+}
+
+/* Form Items */
+.form-item {
+  margin-bottom: 2rem;
+}
+.form-symbol {
+  background-color: var(--slate-100);
+  color: var(--slate-700);
+  padding: 0.5rem 0.75rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+}
+
+/* Form Input Container */
+.form-flex {
+  display: flex;
+  border: 1px solid var(--slate-300);
+  border-radius: 0.5rem;
+}
+.form-flex:hover {
+  border: 1px solid var(--slate-900);
+}
+.form-flex:focus-within {
+  border: 1px solid var(--lime);
+}
+.form-flex:focus-within .form-symbol {
+  background-color: var(--lime);
+  border: 1px solid var(--lime);
+  color: var(--white);
+}
+
+/* Error Handling */
+.form-flex.error {
+  border: 2px solid var(--red) !important;
+  transition: border 0.3s ease-in-out;
+}
+.form-flex.error .form-symbol {
+  background-color: var(--red);
+  color: var(--white);
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.form-alert {
+  color: var(--red);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+.form-flex.error + .form-alert {
+  display: block;
+}
+
+/* Form Grid Layout */
+.form-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+.form-col .form-item {
+  margin: 0;
+}
+
+/* Global Page Styling */
+body {
+  background-color: var(--slate-100);
+  min-height: 100vh;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: grid;
+  place-content: center;
+  justify-content: center;
+}
+.form-alert {
+  color: var(--red);
+  display: none;
+}
+
+/* Mortgage Calculator Layout */
+.mortgage-calculator {
+  background-color: var(--white);
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.mortgage-calculator > * {
+  padding: 2rem;
+}
+
+/* Left Section */
+.mortgage-calculator .left {
+  color: var(--slate-900);
+}
+.mortgage-calculator .left .light-text {
+  color: var(--slate-700);
+  font-weight: 500;
+}
+.mortgage-calculator .left .header {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mortgage-calculator .left .header button {
+  background-color: transparent;
+  color: var(--slate-500);
+  padding: 0.25rem 0.5rem;
+  font-size: 1.15rem;
+  text-decoration: underline;
+  border: none;
+}
+.mortgage-calculator .left .header button:hover {
+  color: var(--slate-900);
+}
+.mortgage-calculator .left .calculate-btn {
+  background-color: var(--lime);
+  color: var(--slate-900);
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mortgage-calculator .left .calculate-btn:hover {
+  background-color: var(--lime-light);
+}
+
+/* Right Section */
+.mortgage-calculator .right {
+  background-color: var(--slate-900);
+  color: var(--white);
+  border-radius: 0 0 0 4rem;
+}
+.mortgage-calculator .right .light-text {
+  color: var(--slate-500);
+  font-weight: 500;
+}
+
+.mortgage-calculator .right .default-text {
+  margin-top: 5rem;
+  text-align: center;
+}
+.mortgage-calculator .right .default-text.hide {
+  display: none;
+}
+.mortgage-calculator .right .default-text img {
+  display: block;
+  margin: auto;
+}
+.mortgage-calculator .right .default-text h2 {
+  margin-bottom: 1rem;
+}
+
+
+/* Hide Calculation Container Initially */
+.mortgage-calculator .right .calculations-container {
+    display: none;
+}
+
+/* Show Calculations When Active */
+.mortgage-calculator .right .calculations-container.show {
+    display: block;
+    min-height: auto; /* Ensures it expands properly */
+}
+
+/* Adjust Light Text Spacing */
+.mortgage-calculator .right .calculations-container .light-text {
+    margin: 1rem 0 2rem;
+}
+
+/* Styling for Calculations Box */
+.mortgage-calculator .right .calculations-container .calculations {
+    background-color: var(--slate-900); /* Changed from --slate-1000 */
+    padding: 1.5rem;
+    border-top: 4px solid var(--lime);
+    border-radius: 1rem;
+}
+
+/* Adjust Spacing in Calculations */
+.mortgage-calculator .right .calculations-container .calculations .light-text {
+    margin-bottom: 1rem;
+}
+
+/* Monthly Result Styling */
+.mortgage-calculator .right .calculations-container .calculations .monthly-result {
+    color: var(--lime);
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+
+
+.mortgage-calculator .right .calculations-container .calculations .line {
+    background-color: var(--slate-500);
+    width: 100%; /* ✅ Centered properly */
+    height: 2px; /* ✅ Slightly thicker for visibility */
+    margin: 2rem auto; /* ✅ Centered */
+    display: block;
+    border-radius: 5px; /* ✅ Smooth edges */
+}
+
+.mortgage-calculator .right .calculations-container .calculations .term-result {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+
+@media (max-width:800px) {
+  .mortgage-calculator{
+    margin: 2rem;
+    grid-template-columns: 1fr;
+  }
+
+  .mortgage-calculator .right .default-text{
+    margin-top: 3rem;
+  }
+
+}
+
+
+@media (max-width:540px) {
+  .mortgage-calculator {
+    margin: 0;
+    grid-template-columns: 1fr;
+    border-radius: initial;
+  }
+
+  .mortgage-calculator .left .header{
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+
+  .form-col{
+    grid-template-columns: 1fr;
+  }
+
+  .mortgage-calculator .right {
+    border-radius: initial;
+  }
+
+  .mortgage-calculator .left .calculate-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
